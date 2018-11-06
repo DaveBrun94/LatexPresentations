@@ -28,7 +28,7 @@
             \filldraw[desy_blue] (1.6,-1.2) circle (4pt);
 
             \draw[thick, desy_blue] (-0.3, 0.3) -- (-1.6, 1.2);
-            \filldraw[desy_blue] (-1.6,1.2) circle (2pt);
+            \filldraw[desy_blue] (-1.6,1.2) circle (4pt);
 
 
         \end{scope}  
@@ -42,3 +42,27 @@
     \newline
     \insertdate
 }
+
+%Section page template
+\AtBeginSection[]{
+
+    {
+        \setbeamertemplate{footline}{} 
+
+        \begin{frame}
+            \vfill
+            \centering
+                \begin{beamercolorbox}[sep=8pt,center,shadow=true,rounded=true]{title}
+                    \usebeamerfont{title}\insertsectionhead\usebeamercolor[fg]{subtitle}\scalebox{2}{$\ldotp$}
+                \end{beamercolorbox}
+            \vfill
+        \end{frame}
+
+    }
+    
+    \addtocounter{framenumber}{-1}
+}
+
+%Itemize templates
+\setbeamertemplate{itemize item}[circle]
+\setbeamercolor*{itemize item}{fg=desy_orange}
