@@ -1,0 +1,36 @@
+\RequirePackage{tikz}
+
+%Footer template
+\defbeamertemplate*{footline}{desy}{
+     \hbox{
+     \begin{beamercolorbox}[wd=0.72\paperwidth,ht=0.8cm]{footline}
+        \begin{tikzpicture}
+            \begin{scope}[node distance= 0.1cm]
+                \draw[thick, desy_blue] (0,0) -- (8.5,0);
+                \filldraw[desy_blue] (0,0) circle (8pt) node[black, font=\bfseries] {\insertframenumber/\totalpagenumber};
+
+                \node[anchor=west, color=desy_orange,font=\bfseries] (t) at (0.3,0.15) {\insertauthor | \insertdate | \insertsubtitle | \inserttitle};
+            \end{scope}  
+        \end{tikzpicture}
+     \end{beamercolorbox}
+
+     \begin{beamercolorbox}[wd=0.28\paperwidth,ht=1cm]{footline}
+        \includegraphics[width=0.24\textwidth, trim= 0 -0.2cm 0 0]{logo.pdf}
+     \end{beamercolorbox}
+    }
+}
+
+%Header template
+\defbeamertemplate*{frametitle}{desy}{
+    \begin{beamercolorbox}[wd=\paperwidth,ht=1cm]{frametitle}
+        \begin{tikzpicture}
+            \begin{scope}[node distance= 0.1cm]
+                \draw[thick, desy_blue] (0,0) -- (12.3,0);
+                \filldraw[desy_blue] (12.3,0) circle (8pt);\
+                
+                \node[anchor=west, color=desy_orange,font=\bfseries] (t) at (0.6,0.25) {\insertframetitle};
+            \end{scope}  
+        \end{tikzpicture}
+     \end{beamercolorbox}
+}
+

@@ -1,0 +1,44 @@
+%Remove navigation bar
+
+\setbeamertemplate{navigation symbols}{}
+
+%Title page template
+\RequirePackage{tikz}
+
+\defbeamertemplate*{title page}{desy}
+{
+    \begin{tikzpicture}
+        \begin{scope}[node distance= 0.1cm]
+        
+            \node[desy_blue, font=\bfseries,scale=1.7] (t) at (0.0,0.0) {\inserttitle};
+
+            \draw[thick, desy_blue] (0, 0.3) -- (0, 1.5);
+            \filldraw[desy_blue] (0,1.5) circle (6pt);
+
+            \draw[thick, desy_blue] (0, -0.3) -- (0, -1.5);
+            \filldraw[desy_blue] (0,-1.5) circle (6pt);
+
+            \draw[thick, desy_blue] (0.3, 0.3) -- (1.6, 1.2);
+            \filldraw[desy_blue] (1.6,1.2) circle (2pt);
+                
+            \draw[thick, desy_blue] (-0.3, -0.3) -- (-1.6, -1.2);
+            \filldraw[desy_blue] (-1.6,-1.2) circle (2pt);
+
+            \draw[thick, desy_blue] (0.3, -0.3) -- (1.6, -1.2);
+            \filldraw[desy_blue] (1.6,-1.2) circle (4pt);
+
+            \draw[thick, desy_blue] (-0.3, 0.3) -- (-1.6, 1.2);
+            \filldraw[desy_blue] (-1.6,1.2) circle (2pt);
+
+
+        \end{scope}  
+    \end{tikzpicture}
+    \vfill
+    \usebeamerfont{subtitle}\usebeamercolor[fg]{subtitle}\insertsubtitle
+    \vfill
+    \usebeamerfont{titletext}\usebeamercolor[fg]{titletext}\insertauthor
+    \newline
+    \insertinstitute
+    \newline
+    \insertdate
+}
