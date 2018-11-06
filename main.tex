@@ -1,1 +1,37 @@
-hello world
+\documentclass{beamer}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{tikz}
+\usepackage{pgf}
+\usepackage[scaled]{helvet}
+\usepackage{lmodern}
+
+%Title page configuration
+\title{The best template ever}
+\subtitle{DESY SUSY Meeting}
+\author[David Brunner]{David Brunner}
+\institute[DESY]{Deutsches Elektronen-Synchrotron (DESY)}
+\date{\the\day.\the\month.\the\year}
+\newcommand{\totalpagenumber}{20}
+
+%Theme
+\usepackage{desy_theme/beamerinnerthemedesy}
+\usepackage{desy_theme/beamerouterthemedesy}
+\usepackage{desy_theme/beamercolorthemedesy}
+
+\begin{document}
+
+%Title page without footer
+{
+    \setbeamertemplate{footline}{} 
+    \begin{frame}
+      \titlepage
+    \end{frame}
+}
+\addtocounter{framenumber}{-1}
+
+\begin{frame}{My frame title}
+    Hello
+\end{frame}
+
+\end{document}
