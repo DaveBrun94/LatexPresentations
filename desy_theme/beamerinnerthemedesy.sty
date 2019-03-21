@@ -10,25 +10,25 @@
     \begin{tikzpicture}
         \begin{scope}[node distance= 0.1cm]
         
-            \node[desy_blue, font=\bfseries,scale=1.7] (t) at (0.0,0.0) {\inserttitle};
+            \node [desy_blue, font=\bfseries,scale= \ifx\titleTwo\empty 1.6 \else 1.2 \fi] (t) at (0.0,0.0) {\begin{tabular}{l} \titleOne \\ \titleTwo \end{tabular}};
 
-            \draw[thick, desy_blue] (0, 0.3) -- (0, 1.5);
-            \filldraw[desy_blue] (0,1.5) circle (6pt);
+            \draw[thick, desy_blue] (0, 0.6) -- (0, 2.0);
+            \filldraw[desy_blue] (0,2.0) circle (6pt);
 
-            \draw[thick, desy_blue] (0, -0.3) -- (0, -1.5);
-            \filldraw[desy_blue] (0,-1.5) circle (6pt);
+            \draw[thick, desy_blue] (0, -0.6) -- (0, -2.0);
+            \filldraw[desy_blue] (0,-2.0) circle (6pt);
 
-            \draw[thick, desy_blue] (0.3, 0.3) -- (1.6, 1.2);
-            \filldraw[desy_blue] (1.6,1.2) circle (2pt);
+            \draw[thick, desy_blue] (0.5, 0.5) -- (2.1, 1.7);
+            \filldraw[desy_blue] (2.1,1.7) circle (2pt);
                 
-            \draw[thick, desy_blue] (-0.3, -0.3) -- (-1.6, -1.2);
-            \filldraw[desy_blue] (-1.6,-1.2) circle (2pt);
+            \draw[thick, desy_blue] (-0.5, -0.5) -- (-2.1, -1.7);
+            \filldraw[desy_blue] (-2.1,-1.7) circle (2pt);
 
-            \draw[thick, desy_blue] (0.3, -0.3) -- (1.6, -1.2);
-            \filldraw[desy_blue] (1.6,-1.2) circle (4pt);
+            \draw[thick, desy_blue] (0.5, -0.5) -- (2.1, -1.7);
+            \filldraw[desy_blue] (2.1,-1.7) circle (4pt);
 
-            \draw[thick, desy_blue] (-0.3, 0.3) -- (-1.6, 1.2);
-            \filldraw[desy_blue] (-1.6,1.2) circle (4pt);
+            \draw[thick, desy_blue] (-0.5, 0.5) -- (-2.1, 1.7);
+            \filldraw[desy_blue] (-2.1,1.7) circle (4pt);
 
 
         \end{scope}  
@@ -47,6 +47,23 @@
 \AtBeginSection[]{
 
     {
+        \setbeamertemplate{sidebar canvas left}{}
+            \setbeamertemplate{sidebar left}{
+            
+                \begin{tikzpicture}
+                    \begin{scope}[node distance= 0.1cm]
+                        \node[] at (0, 0) {};
+
+                        \draw[thick, desy_blue] (0.4, -9) -- (0.4, -0.5);
+                        \filldraw[desy_blue] (0.4, -0.5) circle (8pt);
+
+                        \node[desy_blue, font=\bfseries,scale=1.7] (t) at (1.8, -4) {};
+
+                    \end{scope}  
+                \end{tikzpicture}
+        }
+
+
         \setbeamertemplate{footline}{} 
 
         \begin{frame}
