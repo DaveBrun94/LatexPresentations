@@ -1,18 +1,24 @@
 \documentclass{beamer}
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
-\usepackage{tikz}
 \usepackage{pgf}
 \usepackage[scaled]{helvet}
 \usepackage{lmodern}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage{geometry}
 
 %Title page configuration
-\title{The best template ever}
-\subtitle{DESY SUSY Meeting}
+\def\titleOne{Your title}
+\def\titleTwo{}
+\def\titleOnSlide{UL17 Validation}
+\subtitle{Your subtitle}
 \author[David Brunner]{David Brunner}
-\institute[DESY]{Deutsches Elektronen-Synchrotron (DESY)}
+\def\mainAuthor{David Brunner}
+\institute[DESY]{Deutsches Elektronen-Synchrotron}
 \date{\the\day.\the\month.\the\year}
-\newcommand{\totalpagenumber}{20}
+\newcommand{\totalpagenumber}{Your page number}
 
 %Theme
 \usepackage{desy_theme/beamerinnerthemedesy}
@@ -32,13 +38,7 @@
 
 
 %Presentation part
-\section{My section title}
-
-\begin{frame}{My frame title}
-    \begin{itemize}
-        \item My first item
-        \item My second item
-    \end{itemize}
-\end{frame}
+\section{Your section}
+\input{Your slide}
 
 \end{document}
