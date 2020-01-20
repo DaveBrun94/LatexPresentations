@@ -8,22 +8,41 @@
 \usepackage{amsthm}
 \usepackage{amssymb}
 \usepackage{geometry}
-
-%Title page configuration
-\def\titleOne{Your title}
-\def\titleTwo{}
-\def\titleOnSlide{UL17 Validation}
-\subtitle{Your subtitle}
-\author[David Brunner]{David Brunner}
-\def\mainAuthor{David Brunner}
-\institute[DESY]{Deutsches Elektronen-Synchrotron}
-\date{\the\day.\the\month.\the\year}
-\newcommand{\totalpagenumber}{Your page number}
+\usepackage{tikz}
 
 %Theme
-\usepackage{desy_theme/beamerinnerthemedesy}
-\usepackage{desy_theme/beamerouterthemedesy}
-\usepackage{desy_theme/beamercolorthemedesy}
+\usepackage{DesyTheme/beamerinnerthemedesy}
+\usepackage{DesyTheme/beamerouterthemedesy}
+\usepackage{DesyTheme/beamercolorthemedesy}
+
+\setbeamersize{sidebar width left=15pt, text margin left=0pt, sidebar width right=15pt, text margin right=0pt}
+
+\usetikzlibrary{shapes.symbols,decorations.pathmorphing}
+\usetikzlibrary{positioning,arrows}
+\usetikzlibrary{decorations.pathmorphing}
+\usetikzlibrary{decorations.markings}
+\usetikzlibrary{shadows}
+
+\tikzset{
+    %%For Feynman diagrams
+	fermion/.style={thick,draw=black, postaction={decorate}, decoration={markings,mark=at position 0.6 with {\arrow[black]{triangle 45}}}},
+	photon/.style={decorate, draw=black, decoration={coil,aspect=0}},
+	gluon/.style={decorate, draw=black, decoration={coil,amplitude=4pt, segment length=5pt}},
+    higgs/.style={decorate, draw=black, dash pattern=on 3pt off 3pt},
+}
+
+\tikzstyle{desyBlock} = [rectangle, color=black, fill=desyBlue, text width=4em, text centered, rounded corners, minimum height=3em, draw=none, drop shadow]
+\tikzstyle{desyArrow} = [->, color=desyOrange, thick]
+
+%Title page configuration
+\def\title{My example title}
+\def\titleOnSlide{My example title}
+\def\meeting{My example meeting}
+\def\mainAuthor{David Brunner}
+\def\otherAuthors{}
+\def\affiliation{My example institute}
+\def\time{\the\day.\the\month.\the\year}
+\def\totalPages{10}
 
 \begin{document}
 
@@ -31,14 +50,11 @@
 {
     \setbeamertemplate{footline}{} 
     \begin{frame}
-      \titlepage
+        \titlepage
     \end{frame}
 }
 \addtocounter{framenumber}{-1}
 
-
 %Presentation part
-\section{Your section}
-\input{Your slide}
 
 \end{document}
