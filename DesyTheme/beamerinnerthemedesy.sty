@@ -5,81 +5,99 @@
 %Title page template
 \RequirePackage{tikz}
 
-\defbeamertemplate*{title page}{desy}
-{
-    \begin{tikzpicture}
-        \begin{scope}[node distance= 0.1cm]
-        
-            \node [desy_blue, font=\bfseries,scale= \ifx\titleTwo\empty 1.6 \else 1.2 \fi] (t) at (0.0,0.0) {\begin{tabular}{l} \titleOne \\ \titleTwo \end{tabular}};
+\defbeamertemplate*{title page}{desy}{
+    %%Top half of desy like balls
+    \begin{minipage}{\textwidth}
+        \centering
+        \begin{tikzpicture}[scale=1.2]
+                \draw[thick, desyBlue] (0, 0.6) -- (0, 2.0);
+                \filldraw[desyBlue] (0,2.0) circle (10pt);
 
-            \draw[thick, desy_blue] (0, 0.6) -- (0, 2.0);
-            \filldraw[desy_blue] (0,2.0) circle (6pt);
+                \draw[thick, desyBlue] (0.5, 0.5) -- (2.1, 1.7);
+                \filldraw[desyBlue] (2.1,1.7) circle (4pt);
 
-            \draw[thick, desy_blue] (0, -0.6) -- (0, -2.0);
-            \filldraw[desy_blue] (0,-2.0) circle (6pt);
+                \draw[thick, desyBlue] (-0.5, 0.5) -- (-2.1, 1.7);
+                \filldraw[desyBlue] (-2.1,1.7) circle (6pt);
+        \end{tikzpicture}
+    \end{minipage}
 
-            \draw[thick, desy_blue] (0.5, 0.5) -- (2.1, 1.7);
-            \filldraw[desy_blue] (2.1,1.7) circle (2pt);
-                
-            \draw[thick, desy_blue] (-0.5, -0.5) -- (-2.1, -1.7);
-            \filldraw[desy_blue] (-2.1,-1.7) circle (2pt);
+    %%Main title
+    \begin{minipage}{\textwidth}
+        \centering
+        \usebeamerfont{title}\usebeamercolor[fg]{title} \title
+    \end{minipage}
+              
+    %%Lower half of desy like balls
+    \begin{minipage}{\textwidth}
+        \centering
+        \begin{tikzpicture}[scale=1.2]
+                \draw[thick, desyBlue] (0, -0.6) -- (0, -2.0);
+                \filldraw[desyBlue] (0,-2.0) circle (10pt);
+     
+                \draw[thick, desyBlue] (-0.5, -0.5) -- (-2.1, -1.7);
+                \filldraw[desyBlue] (-2.1,-1.7) circle (4pt);
 
-            \draw[thick, desy_blue] (0.5, -0.5) -- (2.1, -1.7);
-            \filldraw[desy_blue] (2.1,-1.7) circle (4pt);
+                \draw[thick, desyBlue] (0.5, -0.5) -- (2.1, -1.7);
+                \filldraw[desyBlue] (2.1,-1.7) circle (6pt);
+        \end{tikzpicture}
+    \end{minipage}
 
-            \draw[thick, desy_blue] (-0.5, 0.5) -- (-2.1, 1.7);
-            \filldraw[desy_blue] (-2.1,1.7) circle (4pt);
+    \begin{columns}
+        %%DESY Logo
+        \begin{column}{0.1\textwidth}
+            \centering
+            \includegraphics[width=1.4\textwidth]{Logos/DESY.eps}
+        \end{column}
 
+        \begin{column}{0.8\textwidth}
+            %%Meeting name
+            \vspace*{0.5cm}
 
-        \end{scope}  
-    \end{tikzpicture}
-    \vfill
-    \usebeamerfont{subtitle}\usebeamercolor[fg]{subtitle}\insertsubtitle
-    \vfill
-    \usebeamerfont{titletext}\usebeamercolor[fg]{titletext}\insertauthor
-    \newline
-    \insertinstitute
-    \newline
-    \insertdate
+            \begin{minipage}{\textwidth}
+                \centering
+                \usebeamerfont{subtitle}\usebeamercolor[fg]{subtitle} \meeting
+            \end{minipage}
+
+            %%Author information
+            \vspace*{0.5cm}
+
+            \foreach \x in {\underline{\bfseries{\mainAuthor}}, \otherAuthors, \affiliation, \time}{
+                \begin{minipage}{\textwidth}
+                    \centering
+                    \usebeamerfont{titletext}\usebeamercolor[fg]{titletext} \x
+                \end{minipage}
+            }
+        \end{column}
+
+        %%CMS Logo
+        \begin{column}{0.1\textwidth}
+            \includegraphics[width=1.4\textwidth]{Logos/CMS.eps}
+        \end{column}
+    \end{columns}
 }
 
 %Section page template
 \AtBeginSection[]{
-
     {
-        \setbeamertemplate{sidebar canvas left}{}
-            \setbeamertemplate{sidebar left}{
-            
-                \begin{tikzpicture}
-                    \begin{scope}[node distance= 0.1cm]
-                        \node[] at (0, 0) {};
+    \setbeamertemplate{footline}{} 
 
-                        \draw[thick, desy_blue] (0.4, -9) -- (0.4, -0.5);
-                        \filldraw[desy_blue] (0.4, -0.5) circle (8pt);
+    \begin{frame}
+        \hspace*{4cm}
+        \begin{tikzpicture}
+            \draw[thick, desyBlue] (0, 0) -- (0, -20);
+            \filldraw[desyBlue] (0, 0) circle (8pt);
+            \draw (0, -4) node[anchor=west]{
+                \begin{minipage}{\textwidth}
+                    \tableofcontents[sectionstyle=show/shaded] 
+                \end{minipage}
+            };
+        \end{tikzpicture}
+    \end{frame}
 
-                        \node[desy_blue, font=\bfseries,scale=1.7] (t) at (1.8, -4) {};
-
-                    \end{scope}  
-                \end{tikzpicture}
-        }
-
-
-        \setbeamertemplate{footline}{} 
-
-        \begin{frame}
-            \vfill
-            \centering
-                \begin{beamercolorbox}[sep=8pt,center,shadow=true,rounded=true]{title}
-                    \usebeamerfont{title}\insertsectionhead\usebeamercolor[fg]{subtitle}\scalebox{2}{$\ldotp$}
-                \end{beamercolorbox}
-            \vfill
-        \end{frame}
-
-    }
-    
     \addtocounter{framenumber}{-1}
+    }
 }
 
 %Itemize templates
 \setbeamertemplate{itemize item}[circle]
-\setbeamercolor*{itemize item}{fg=desy_orange}
+\setbeamercolor*{itemize item}{fg=desyOrange}
